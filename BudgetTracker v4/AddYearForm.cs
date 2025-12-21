@@ -19,8 +19,8 @@ namespace BudgetTracker_v4
         {
             FinancialYear fy = new FinancialYear();
             fy.Year = int.Parse(txtBoxYear.Text);
-            fy.MainIncomeBudget = new Budget(fy, null, [], double.Parse(txtBoxIncome.Text), 0, 0, []);
-            fy.MainExpenseBudget = new Budget(fy, null, [], double.Parse(txtBoxExpense.Text), 0, 0, []);
+            fy.MainIncomeBudget = new Budget(fy, null, 700, double.Parse(txtBoxIncome.Text));
+            fy.MainExpenseBudget = new Budget(fy, null, 400, double.Parse(txtBoxExpense.Text));
             MainForm.FinancialYears.Add(fy);
             Close();
         }

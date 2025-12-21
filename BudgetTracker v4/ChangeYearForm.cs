@@ -24,18 +24,23 @@ namespace BudgetTracker_v4
 
         private void ChangeYearForm_Load(object sender, EventArgs e)
         {
-            List<string> choices = new List<string>();
-            foreach (FinancialYear fy in MainForm.FinancialYears)
-            {
-                choices.Add(fy.Year.ToString());
-            }
-            comBoxYears.Items.AddRange(choices.ToArray());
+            RefreshList();
         }
 
         private void btnAddNewYear_Click(object sender, EventArgs e)
         {
             AddYearForm form = new AddYearForm();
             form.ShowDialog();
+            RefreshList();
+        }
+        private void RefreshList()
+        {
+            List<string> choices = new List<string>();
+            foreach (FinancialYear fy in MainForm.FinancialYears)
+            {
+                choices.Add(fy.Year.ToString());
+            }
+            comBoxYears.Items.AddRange(choices.ToArray());
         }
     }
 }

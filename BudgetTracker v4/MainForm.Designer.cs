@@ -39,6 +39,8 @@
             labelExpensesText = new Label();
             table_Income = new DataGridView();
             table_Costs = new DataGridView();
+            btnAddIncomeBudget = new Button();
+            btnAddExpenseBudget = new Button();
             ((System.ComponentModel.ISupportInitialize)table_Income).BeginInit();
             ((System.ComponentModel.ISupportInitialize)table_Costs).BeginInit();
             SuspendLayout();
@@ -141,11 +143,16 @@
             // 
             // table_Income
             // 
+            table_Income.AllowUserToAddRows = false;
+            table_Income.AllowUserToDeleteRows = false;
+            table_Income.AllowUserToResizeColumns = false;
+            table_Income.AllowUserToResizeRows = false;
             table_Income.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             table_Income.Location = new Point(12, 157);
             table_Income.Name = "table_Income";
             table_Income.Size = new Size(470, 163);
             table_Income.TabIndex = 9;
+            table_Income.CellContentClick += table_Income_CellContentClick;
             // 
             // table_Costs
             // 
@@ -155,11 +162,36 @@
             table_Costs.Size = new Size(470, 165);
             table_Costs.TabIndex = 10;
             // 
+            // btnAddIncomeBudget
+            // 
+            btnAddIncomeBudget.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAddIncomeBudget.Font = new Font("Segoe UI", 9F);
+            btnAddIncomeBudget.Location = new Point(383, 128);
+            btnAddIncomeBudget.Name = "btnAddIncomeBudget";
+            btnAddIncomeBudget.Size = new Size(99, 26);
+            btnAddIncomeBudget.TabIndex = 11;
+            btnAddIncomeBudget.Text = "Add K1";
+            btnAddIncomeBudget.UseVisualStyleBackColor = true;
+            btnAddIncomeBudget.Click += btnAddIncomeBudget_Click;
+            // 
+            // btnAddExpenseBudget
+            // 
+            btnAddExpenseBudget.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAddExpenseBudget.Font = new Font("Segoe UI", 9F);
+            btnAddExpenseBudget.Location = new Point(383, 348);
+            btnAddExpenseBudget.Name = "btnAddExpenseBudget";
+            btnAddExpenseBudget.Size = new Size(99, 26);
+            btnAddExpenseBudget.TabIndex = 12;
+            btnAddExpenseBudget.Text = "Add K1";
+            btnAddExpenseBudget.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(494, 554);
+            Controls.Add(btnAddExpenseBudget);
+            Controls.Add(btnAddIncomeBudget);
             Controls.Add(table_Costs);
             Controls.Add(table_Income);
             Controls.Add(labelExpensesText);
@@ -195,5 +227,7 @@
         private Label labelExpensesText;
         private DataGridView table_Income;
         private DataGridView table_Costs;
+        private Button btnAddIncomeBudget;
+        private Button btnAddExpenseBudget;
     }
 }
