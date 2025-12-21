@@ -14,3 +14,7 @@ C:\MD\budgettracker_v4\BudgetTracker v4\obj\Debug\net10.0-windows\refint\BudgetT
 C:\MD\budgettracker_v4\BudgetTracker v4\obj\Debug\net10.0-windows\BudgetTracker v4.pdb
 C:\MD\budgettracker_v4\BudgetTracker v4\obj\Debug\net10.0-windows\BudgetTracker v4.genruntimeconfig.cache
 C:\MD\budgettracker_v4\BudgetTracker v4\obj\Debug\net10.0-windows\ref\BudgetTracker v4.dll
+C:\MD\budgettracker_v4\BudgetTracker v4\obj\Debug\net10.0-windows\BudgetTracker_v4.ChangeYearForm.resources
+C:\MD\budgettracker_v4\BudgetTracker v4\obj\Debug\net10.0-windows\BudgetTracker v4.sourcelink.json
+C:\MD\budgettracker_v4\BudgetTracker v4\obj\Debug\net10.0-windows\BudgetTracker_v4.AddBudgetForm.resources
+C:\MD\budgettracker_v4\BudgetTracker v4\obj\Debug\net10.0-windows\BudgetTracker_v4.AddYearForm.resources

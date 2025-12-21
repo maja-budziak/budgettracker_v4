@@ -38,7 +38,7 @@ namespace BudgetTracker_v4
         /// <summary>
         /// Calculates the time-based amount - based on the amount of the year that has passed.
         /// </summary>
-        /// <returns>test</returns>
+        /// <returns></returns>
         public double CalculateTBA()
         {
             DateTime FYStart = new DateTime(Year.Year, 1, 1, 0, 0, 0);
