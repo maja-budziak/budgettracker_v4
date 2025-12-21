@@ -1,0 +1,199 @@
+﻿namespace BudgetTracker_v4
+{
+    partial class MainForm
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            labelFY = new Label();
+            btnChangeYear = new Button();
+            labelCurrentText = new Label();
+            labelTBAText = new Label();
+            btnRefreshBalance = new Button();
+            labelCurrentBalance = new Label();
+            labelTBABalance = new Label();
+            labelIncomeText = new Label();
+            labelExpensesText = new Label();
+            table_Income = new DataGridView();
+            table_Costs = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)table_Income).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)table_Costs).BeginInit();
+            SuspendLayout();
+            // 
+            // labelFY
+            // 
+            labelFY.AutoSize = true;
+            labelFY.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelFY.Location = new Point(12, 21);
+            labelFY.Name = "labelFY";
+            labelFY.Size = new Size(234, 21);
+            labelFY.TabIndex = 0;
+            labelFY.Text = "Financial Year:  (not selected)";
+            // 
+            // btnChangeYear
+            // 
+            btnChangeYear.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnChangeYear.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnChangeYear.Location = new Point(334, 14);
+            btnChangeYear.Name = "btnChangeYear";
+            btnChangeYear.Size = new Size(148, 35);
+            btnChangeYear.TabIndex = 1;
+            btnChangeYear.Text = "Change Year";
+            btnChangeYear.UseVisualStyleBackColor = true;
+            btnChangeYear.Click += btnChangeYear_Click;
+            // 
+            // labelCurrentText
+            // 
+            labelCurrentText.AutoSize = true;
+            labelCurrentText.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelCurrentText.Location = new Point(12, 58);
+            labelCurrentText.Name = "labelCurrentText";
+            labelCurrentText.Size = new Size(123, 21);
+            labelCurrentText.TabIndex = 2;
+            labelCurrentText.Text = "Current balance:";
+            // 
+            // labelTBAText
+            // 
+            labelTBAText.AutoSize = true;
+            labelTBAText.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelTBAText.Location = new Point(12, 95);
+            labelTBAText.Name = "labelTBAText";
+            labelTBAText.Size = new Size(151, 21);
+            labelTBAText.TabIndex = 3;
+            labelTBAText.Text = "Time-based balance:";
+            // 
+            // btnRefreshBalance
+            // 
+            btnRefreshBalance.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnRefreshBalance.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnRefreshBalance.Location = new Point(334, 58);
+            btnRefreshBalance.Name = "btnRefreshBalance";
+            btnRefreshBalance.Size = new Size(148, 58);
+            btnRefreshBalance.TabIndex = 4;
+            btnRefreshBalance.Text = "Refresh";
+            btnRefreshBalance.UseVisualStyleBackColor = true;
+            btnRefreshBalance.Click += btnRefreshBalance_Click;
+            // 
+            // labelCurrentBalance
+            // 
+            labelCurrentBalance.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelCurrentBalance.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelCurrentBalance.Location = new Point(178, 58);
+            labelCurrentBalance.Name = "labelCurrentBalance";
+            labelCurrentBalance.Size = new Size(150, 21);
+            labelCurrentBalance.TabIndex = 5;
+            labelCurrentBalance.Text = "0,00";
+            labelCurrentBalance.TextAlign = ContentAlignment.TopRight;
+            // 
+            // labelTBABalance
+            // 
+            labelTBABalance.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelTBABalance.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelTBABalance.Location = new Point(178, 95);
+            labelTBABalance.Name = "labelTBABalance";
+            labelTBABalance.Size = new Size(150, 21);
+            labelTBABalance.TabIndex = 6;
+            labelTBABalance.Text = "0,00";
+            labelTBABalance.TextAlign = ContentAlignment.TopRight;
+            // 
+            // labelIncomeText
+            // 
+            labelIncomeText.AutoSize = true;
+            labelIncomeText.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelIncomeText.Location = new Point(12, 133);
+            labelIncomeText.Name = "labelIncomeText";
+            labelIncomeText.Size = new Size(64, 21);
+            labelIncomeText.TabIndex = 7;
+            labelIncomeText.Text = "Income:";
+            // 
+            // labelExpensesText
+            // 
+            labelExpensesText.AutoSize = true;
+            labelExpensesText.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelExpensesText.Location = new Point(12, 353);
+            labelExpensesText.Name = "labelExpensesText";
+            labelExpensesText.Size = new Size(51, 21);
+            labelExpensesText.TabIndex = 8;
+            labelExpensesText.Text = "Costs:";
+            // 
+            // table_Income
+            // 
+            table_Income.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            table_Income.Location = new Point(12, 157);
+            table_Income.Name = "table_Income";
+            table_Income.Size = new Size(470, 163);
+            table_Income.TabIndex = 9;
+            // 
+            // table_Costs
+            // 
+            table_Costs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            table_Costs.Location = new Point(12, 377);
+            table_Costs.Name = "table_Costs";
+            table_Costs.Size = new Size(470, 165);
+            table_Costs.TabIndex = 10;
+            // 
+            // MainForm
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(494, 554);
+            Controls.Add(table_Costs);
+            Controls.Add(table_Income);
+            Controls.Add(labelExpensesText);
+            Controls.Add(labelIncomeText);
+            Controls.Add(labelTBABalance);
+            Controls.Add(labelCurrentBalance);
+            Controls.Add(btnRefreshBalance);
+            Controls.Add(labelTBAText);
+            Controls.Add(labelCurrentText);
+            Controls.Add(btnChangeYear);
+            Controls.Add(labelFY);
+            MaximumSize = new Size(510, 593);
+            MinimumSize = new Size(510, 593);
+            Name = "MainForm";
+            Text = "BudgetTracker v4";
+            Load += MainForm_Load;
+            ((System.ComponentModel.ISupportInitialize)table_Income).EndInit();
+            ((System.ComponentModel.ISupportInitialize)table_Costs).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Label labelFY;
+        private Button btnChangeYear;
+        private Label labelCurrentText;
+        private Label labelTBAText;
+        private Button btnRefreshBalance;
+        private Label labelCurrentBalance;
+        private Label labelTBABalance;
+        private Label labelIncomeText;
+        private Label labelExpensesText;
+        private DataGridView table_Income;
+        private DataGridView table_Costs;
+    }
+}
