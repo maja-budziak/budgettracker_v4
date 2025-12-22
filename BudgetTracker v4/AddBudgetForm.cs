@@ -17,7 +17,7 @@ namespace BudgetTracker_v4
 
         private void AddBudgetForm_Load(object sender, EventArgs e)
         {
-            txtBoxAvailable.Text = ParentBudget.SpentAmount.ToString();
+            txtBoxAvailable.Text = ParentBudget.AvailableAmount.ToString();
         }
 
         public Budget ParentBudget;
@@ -26,7 +26,7 @@ namespace BudgetTracker_v4
         {
             if (double.TryParse(txtBoxAllocated.Text, out double balance))
             {
-                txtBoxRemaining.Text = (ParentBudget.GetCurrentAmount() - balance).ToString();
+                txtBoxRemaining.Text = (ParentBudget.AvailableAmount - balance).ToString();
                 txtBoxAllocated.BackColor = Color.White;
             }
             else
@@ -65,10 +65,10 @@ namespace BudgetTracker_v4
                 {
                     if(double.TryParse(txtBoxAllocated.Text, out double amount))
                     {
-                        Budget b = new Budget(MainForm.CurrentYear, ParentBudget, id, amount);
+                        Budget b = new Budget(MainForm.CurrentYear, ParentBudget, id, txtBoxName.Text, amount);
                         MainForm.Budgets.Add(b);
                         ParentBudget.SubBudgets.Add(b);
-                        
+                        ParentBudget.AvailableAmount -= amount;
                         Close();
                     }
                     else

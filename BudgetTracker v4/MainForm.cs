@@ -27,6 +27,7 @@ namespace BudgetTracker_v4
             if (CurrentYear != null)
             {
                 labelCurrentBalance.Text = CurrentYear.MainIncomeBudget.TotalAmount.ToString("F2");
+                labelTBABalance.Text = CurrentYear.MainIncomeBudget.CalculateTBA().ToString("F2");
                 labelFY.Text = "Financial Year:   " + CurrentYear.Year.ToString();
                 btnAddIncomeBudget.Enabled = true;
                 btnAddExpenseBudget.Enabled = true;
@@ -36,12 +37,18 @@ namespace BudgetTracker_v4
         private void btnRefreshBalance_Click(object sender, EventArgs e)
         {
             FillTables();
-            // TODO global calculate TBA
+            labelCurrentBalance.Text = CurrentYear.MainIncomeBudget.TotalAmount.ToString("F2");
+            labelTBABalance.Text = CurrentYear.MainIncomeBudget.CalculateTBA().ToString("F2");
         }
 
         private void table_Income_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (table_Income.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                int id = (int)table_Income.Rows[e.RowIndex].Cells[0].Value;
+                Budget b = Budgets.FirstOrDefault(b => b.Id == id);
+                // TODO budgetView
+            }
         }
         private void FormatTables()
         {
@@ -72,7 +79,7 @@ namespace BudgetTracker_v4
                 row.Cells.AddRange([
                     new DataGridViewTextBoxCell { Value = b.Id },
                     new DataGridViewTextBoxCell { Value = b.Name },
-                    new DataGridViewTextBoxCell { Value = b.GetCurrentAmount() },
+                    new DataGridViewTextBoxCell { Value = b.GetCurrentAmount().ToString("F2") },
                     new DataGridViewTextBoxCell { Value = b.CalculateTBA().ToString("F2") },
                     new DataGridViewButtonCell { Value = "View" }
                 ]);
