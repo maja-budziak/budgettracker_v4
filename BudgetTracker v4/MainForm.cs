@@ -47,7 +47,9 @@ namespace BudgetTracker_v4
             {
                 int id = (int)table_Income.Rows[e.RowIndex].Cells[0].Value;
                 Budget b = Budgets.FirstOrDefault(b => b.Id == id);
-                // TODO budgetView
+                BudgetViewForm bvf = new BudgetViewForm();
+                bvf.ThisBudget = b;
+                bvf.ShowDialog();
             }
         }
         private void FormatTables()

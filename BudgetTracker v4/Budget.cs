@@ -101,5 +101,16 @@ namespace BudgetTracker_v4
                 ParentBudget.PushEntry(e);
             }
         }
+        public string GetFullId()
+        {
+            if (ParentBudget == MainForm.CurrentYear.MainIncomeBudget || ParentBudget == MainForm.CurrentYear.MainExpenseBudget)
+            {
+                return Id.ToString();
+            }
+            else
+            {
+                return ParentBudget.GetFullId() + "-" + Id.ToString();
+            }
+        }
     }
 }

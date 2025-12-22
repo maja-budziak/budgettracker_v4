@@ -7,6 +7,9 @@
     <Compile Update="AddYearForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="BudgetViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ChangeYearForm.cs">
       <SubType>Form</SubType>
     </Compile>
