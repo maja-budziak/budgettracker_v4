@@ -40,6 +40,7 @@
             labelRemainingBudget = new Label();
             txtBoxRemaining = new TextBox();
             btnConfirm = new Button();
+            labelParentBudget = new Label();
             SuspendLayout();
             // 
             // labelK1Text
@@ -168,11 +169,22 @@
             btnConfirm.UseVisualStyleBackColor = true;
             btnConfirm.Click += btnConfirm_Click;
             // 
+            // labelParentBudget
+            // 
+            labelParentBudget.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelParentBudget.Location = new Point(89, 21);
+            labelParentBudget.Name = "labelParentBudget";
+            labelParentBudget.Size = new Size(126, 21);
+            labelParentBudget.TabIndex = 16;
+            labelParentBudget.Text = "-";
+            labelParentBudget.TextAlign = ContentAlignment.TopRight;
+            // 
             // AddBudgetForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(287, 266);
+            Controls.Add(labelParentBudget);
             Controls.Add(btnConfirm);
             Controls.Add(txtBoxRemaining);
             Controls.Add(labelRemainingBudget);
@@ -206,5 +218,6 @@
         private Label labelRemainingBudget;
         private TextBox txtBoxRemaining;
         private Button btnConfirm;
+        private Label labelParentBudget;
     }
 }

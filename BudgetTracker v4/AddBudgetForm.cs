@@ -18,6 +18,14 @@ namespace BudgetTracker_v4
         private void AddBudgetForm_Load(object sender, EventArgs e)
         {
             txtBoxAvailable.Text = ParentBudget.AvailableAmount.ToString();
+            if (ParentBudget.CheckBudgetLevel() == 0)
+            {
+                labelParentBudget.Text = "";
+            }
+            else
+            {
+                labelParentBudget.Text = ParentBudget.GetFullId() + "-";
+            }
         }
 
         public Budget ParentBudget;

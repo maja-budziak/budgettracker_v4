@@ -53,6 +53,7 @@
             table_SubBudgets.Name = "table_SubBudgets";
             table_SubBudgets.Size = new Size(470, 359);
             table_SubBudgets.TabIndex = 10;
+            table_SubBudgets.CellContentClick += table_SubBudgets_CellContentClick;
             // 
             // labelCurrentText
             // 
@@ -83,8 +84,9 @@
             btnAddIncomeBudget.Name = "btnAddIncomeBudget";
             btnAddIncomeBudget.Size = new Size(99, 26);
             btnAddIncomeBudget.TabIndex = 13;
-            btnAddIncomeBudget.Text = "Add K2";
+            btnAddIncomeBudget.Text = "Add K1";
             btnAddIncomeBudget.UseVisualStyleBackColor = true;
+            btnAddIncomeBudget.Click += btnAddIncomeBudget_Click;
             // 
             // labelTBAText
             // 
@@ -117,6 +119,7 @@
             labelTBABalance.TabIndex = 16;
             labelTBABalance.Text = "0,00";
             labelTBABalance.TextAlign = ContentAlignment.TopRight;
+            labelTBABalance.Click += labelTBABalance_Click;
             // 
             // labelCurrentBudgetText
             // 

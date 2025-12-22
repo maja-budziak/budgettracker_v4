@@ -112,5 +112,25 @@ namespace BudgetTracker_v4
                 return ParentBudget.GetFullId() + "-" + Id.ToString();
             }
         }
+
+        /// <summary>
+        /// Checks the level of a given budget in relation to the main budget, where the level 1 is a sub-budget of the main budget, level 2 is a sub-budget of a level 1 sub-budget, etc.
+        /// </summary>
+        /// <returns></returns>
+        public int CheckBudgetLevel()
+        {
+            if(this == MainForm.CurrentYear.MainIncomeBudget || ParentBudget == MainForm.CurrentYear.MainExpenseBudget)
+            {
+                return 0;
+            }
+            else if (ParentBudget == MainForm.CurrentYear.MainIncomeBudget || ParentBudget == MainForm.CurrentYear.MainExpenseBudget)
+            {
+                return 1;
+            }
+            else
+            {
+                return 1 + ParentBudget.CheckBudgetLevel();
+            }
+        }
     }
 }
