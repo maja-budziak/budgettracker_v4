@@ -75,6 +75,7 @@
             btnRefreshBalance.TabIndex = 12;
             btnRefreshBalance.Text = "Refresh";
             btnRefreshBalance.UseVisualStyleBackColor = true;
+            btnRefreshBalance.Click += btnRefreshBalance_Click;
             // 
             // btnAddIncomeBudget
             // 

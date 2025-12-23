@@ -48,6 +48,9 @@ namespace BudgetTracker_v4
             FormatTables();
             labelCurrentBudget.Text = "[" + ThisBudget.GetFullId() + "] " + ThisBudget.Name;
             btnAddIncomeBudget.Text = "Add K" + (ThisBudget.CheckBudgetLevel() + 1);
+            labelCurrentBalance.Text = ThisBudget.GetCurrentAmount().ToString("F2");
+            labelTBABalance.Text = ThisBudget.CalculateTBA().ToString("F2");
+            FillTables();
         }
 
         private void labelTBABalance_Click(object sender, EventArgs e)
@@ -73,6 +76,13 @@ namespace BudgetTracker_v4
                 bvf.ThisBudget = b;
                 bvf.ShowDialog();
             }
+        }
+
+        private void btnRefreshBalance_Click(object sender, EventArgs e)
+        {
+            labelCurrentBalance.Text = ThisBudget.GetCurrentAmount().ToString("F2");
+            labelTBABalance.Text = ThisBudget.CalculateTBA().ToString("F2");
+            FillTables();
         }
     }
 }
