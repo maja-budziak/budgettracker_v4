@@ -147,9 +147,9 @@
             labelBudgetTypeText.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelBudgetTypeText.Location = new Point(12, 42);
             labelBudgetTypeText.Name = "labelBudgetTypeText";
-            labelBudgetTypeText.Size = new Size(123, 21);
+            labelBudgetTypeText.Size = new Size(96, 21);
             labelBudgetTypeText.TabIndex = 19;
-            labelBudgetTypeText.Text = "Current balance:";
+            labelBudgetTypeText.Text = "Budget type:";
             // 
             // labelBudgetType
             // 

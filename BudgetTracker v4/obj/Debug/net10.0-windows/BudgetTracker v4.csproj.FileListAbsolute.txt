@@ -19,3 +19,4 @@ C:\MD\budgettracker_v4\BudgetTracker v4\obj\Debug\net10.0-windows\BudgetTracker 
 C:\MD\budgettracker_v4\BudgetTracker v4\obj\Debug\net10.0-windows\BudgetTracker_v4.AddBudgetForm.resources
 C:\MD\budgettracker_v4\BudgetTracker v4\obj\Debug\net10.0-windows\BudgetTracker_v4.AddYearForm.resources
 C:\MD\budgettracker_v4\BudgetTracker v4\obj\Debug\net10.0-windows\BudgetTracker_v4.BudgetViewForm.resources
+C:\MD\budgettracker_v4\BudgetTracker v4\obj\Debug\net10.0-windows\BudgetTracker_v4.NewEntryForm.resources
