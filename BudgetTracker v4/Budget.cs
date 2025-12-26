@@ -1,11 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace BudgetTracker_v4
 {
     public class Budget
     {
+        [JsonConstructor]
+        public Budget(double totalAmount, double availableAmount, double spentAmount, string name, List<Budget> subBudgets, List<Entry> entries)
+        {
+            TotalAmount = totalAmount;
+            AvailableAmount = availableAmount;
+            SpentAmount = spentAmount;
+            Entries = entries;
+            SubBudgets = subBudgets;
+            Name = name;
+        }
         /// <summary>
         /// Full constructor for pulling all data into a new Budget object.
         /// </summary>
@@ -50,6 +61,7 @@ namespace BudgetTracker_v4
         }
 
         private FinancialYear Year {  get; set; }
+        [JsonIgnore]
         public Budget? ParentBudget { get; set; }
         public int Id { get; set; }
         public string Name { get; set; }

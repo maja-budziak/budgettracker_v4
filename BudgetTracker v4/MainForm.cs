@@ -1,3 +1,5 @@
+using System.Text.Json;
+
 namespace BudgetTracker_v4
 {
     public partial class MainForm : Form
@@ -26,8 +28,8 @@ namespace BudgetTracker_v4
             cyf.ShowDialog();
             if (CurrentYear != null)
             {
-                labelCurrentBalance.Text = CurrentYear.MainIncomeBudget.TotalAmount.ToString("F2");
-                labelTBABalance.Text = CurrentYear.MainIncomeBudget.CalculateTBA().ToString("F2");
+                labelCurrentBalance.Text = (CurrentYear.MainExpenseBudget.GetCurrentAmount() - CurrentYear.MainIncomeBudget.GetCurrentAmount()).ToString("F2");
+                labelTBABalance.Text = (CurrentYear.MainExpenseBudget.CalculateTBA() - CurrentYear.MainIncomeBudget.CalculateTBA()).ToString("F2");
                 labelFY.Text = "Financial Year:   " + CurrentYear.Year.ToString();
                 btnAddIncomeBudget.Enabled = true;
                 btnAddExpenseBudget.Enabled = true;
@@ -37,8 +39,8 @@ namespace BudgetTracker_v4
         private void btnRefreshBalance_Click(object sender, EventArgs e)
         {
             FillTables();
-            labelCurrentBalance.Text = CurrentYear.MainIncomeBudget.GetCurrentAmount().ToString("F2");
-            labelTBABalance.Text = CurrentYear.MainIncomeBudget.CalculateTBA().ToString("F2");
+            labelCurrentBalance.Text = (CurrentYear.MainExpenseBudget.GetCurrentAmount() - CurrentYear.MainIncomeBudget.GetCurrentAmount()).ToString("F2");
+            labelTBABalance.Text = (CurrentYear.MainExpenseBudget.CalculateTBA() - CurrentYear.MainIncomeBudget.CalculateTBA()).ToString("F2");
         }
 
         private void table_Income_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -107,6 +109,12 @@ namespace BudgetTracker_v4
         private void labelCurrentBalance_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            string json = JsonSerializer.Serialize(FinancialYears);
+            File.WriteAllText("structure.json", json);
         }
     }
 }

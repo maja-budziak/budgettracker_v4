@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace BudgetTracker_v4
 {
@@ -11,6 +12,13 @@ namespace BudgetTracker_v4
             Budget = b;
             Amount = amount;
             EntryTime = DateTime.Now;
+        }
+
+        [JsonConstructor]
+        public Entry(double amount, DateTime entryTime)
+        {
+            Amount = amount;
+            EntryTime = entryTime;
         }
 
         private Budget Budget {  get; set; }

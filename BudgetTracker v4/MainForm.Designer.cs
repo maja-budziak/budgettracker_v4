@@ -222,6 +222,7 @@
             MinimumSize = new Size(510, 593);
             Name = "MainForm";
             Text = "BudgetTracker v4";
+            FormClosing += MainForm_FormClosing;
             Load += MainForm_Load;
             ((System.ComponentModel.ISupportInitialize)table_Income).EndInit();
             ((System.ComponentModel.ISupportInitialize)table_Costs).EndInit();
