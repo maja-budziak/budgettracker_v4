@@ -17,6 +17,13 @@ namespace BudgetTracker_v4
         public double Amount { get; set; }
         public DateTime EntryTime { get; set; }
 
-
+        public void PushEntry(Budget b)
+        {
+            b.SpentAmount += Amount;
+            if (b.ParentBudget != null)
+            {
+                PushEntry(b.ParentBudget);
+            }
+        }
     }
 }

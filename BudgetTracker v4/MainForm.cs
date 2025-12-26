@@ -37,7 +37,7 @@ namespace BudgetTracker_v4
         private void btnRefreshBalance_Click(object sender, EventArgs e)
         {
             FillTables();
-            labelCurrentBalance.Text = CurrentYear.MainIncomeBudget.TotalAmount.ToString("F2");
+            labelCurrentBalance.Text = CurrentYear.MainIncomeBudget.GetCurrentAmount().ToString("F2");
             labelTBABalance.Text = CurrentYear.MainIncomeBudget.CalculateTBA().ToString("F2");
         }
 
@@ -102,6 +102,11 @@ namespace BudgetTracker_v4
             NewEntryForm nef = new NewEntryForm();
             nef.ThisBudget = CurrentYear.MainIncomeBudget;
             nef.ShowDialog();
+        }
+
+        private void labelCurrentBalance_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

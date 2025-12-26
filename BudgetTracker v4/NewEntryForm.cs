@@ -66,10 +66,19 @@ namespace BudgetTracker_v4
             ThisBudget = ThisBudget.ParentBudget;
             FillTables();
             labelSelectedBudget.Text = "[" + ThisBudget.GetFullId() + "] " + ThisBudget.Name;
-            if(ThisBudget == MainForm.CurrentYear.MainIncomeBudget || ThisBudget == MainForm.CurrentYear.MainExpenseBudget)
+            if (ThisBudget == MainForm.CurrentYear.MainIncomeBudget || ThisBudget == MainForm.CurrentYear.MainExpenseBudget)
             {
                 btnBackToParent.Enabled = false;
             }
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            double amount = double.Parse(txtBoxAmount.Text);
+            Entry en = new Entry(ThisBudget, amount);
+            ThisBudget.Entries.Add(en);
+            en.PushEntry(ThisBudget);
+            Close();
         }
     }
 }

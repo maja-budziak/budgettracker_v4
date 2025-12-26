@@ -110,6 +110,7 @@
             labelCurrentBalance.TabIndex = 5;
             labelCurrentBalance.Text = "0,00";
             labelCurrentBalance.TextAlign = ContentAlignment.TopRight;
+            labelCurrentBalance.Click += labelCurrentBalance_Click;
             // 
             // labelTBABalance
             // 
