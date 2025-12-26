@@ -96,5 +96,12 @@ namespace BudgetTracker_v4
             abf.ShowDialog();
             FillTables();
         }
+
+        private void btnAddEntryIncome_Click(object sender, EventArgs e)
+        {
+            NewEntryForm nef = new NewEntryForm();
+            nef.ThisBudget = CurrentYear.MainIncomeBudget;
+            nef.ShowDialog();
+        }
     }
 }

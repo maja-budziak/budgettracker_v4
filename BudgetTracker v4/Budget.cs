@@ -50,7 +50,7 @@ namespace BudgetTracker_v4
         }
 
         private FinancialYear Year {  get; set; }
-        private Budget? ParentBudget { get; set; }
+        public Budget? ParentBudget { get; set; }
         public int Id { get; set; }
         public string Name { get; set; }
         public List<Budget> SubBudgets { get; set; }
@@ -103,7 +103,10 @@ namespace BudgetTracker_v4
         }
         public string GetFullId()
         {
-            if (ParentBudget == MainForm.CurrentYear.MainIncomeBudget || ParentBudget == MainForm.CurrentYear.MainExpenseBudget)
+            if (ParentBudget    == MainForm.CurrentYear.MainIncomeBudget    || 
+                ParentBudget    == MainForm.CurrentYear.MainExpenseBudget   ||
+                this            == MainForm.CurrentYear.MainIncomeBudget    ||
+                this            == MainForm.CurrentYear.MainExpenseBudget)
             {
                 return Id.ToString();
             }

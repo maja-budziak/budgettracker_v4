@@ -74,6 +74,7 @@
             table_SubBudgets.Name = "table_SubBudgets";
             table_SubBudgets.Size = new Size(470, 318);
             table_SubBudgets.TabIndex = 22;
+            table_SubBudgets.CellContentClick += table_SubBudgets_CellContentClick;
             // 
             // btnBackToParent
             // 
@@ -85,6 +86,7 @@
             btnBackToParent.TabIndex = 23;
             btnBackToParent.Text = "Go back";
             btnBackToParent.UseVisualStyleBackColor = true;
+            btnBackToParent.Click += btnBackToParent_Click;
             // 
             // labelEntryName
             // 
