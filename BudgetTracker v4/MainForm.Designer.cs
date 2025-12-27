@@ -43,6 +43,10 @@
             btnAddExpenseBudget = new Button();
             btnAddEntryIncome = new Button();
             btnAddEntryEspense = new Button();
+            txtBoxIncomeTBA = new TextBox();
+            txtBoxExpenseTBA = new TextBox();
+            label1 = new Label();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)table_Income).BeginInit();
             ((System.ComponentModel.ISupportInitialize)table_Costs).BeginInit();
             SuspendLayout();
@@ -128,7 +132,7 @@
             // 
             labelIncomeText.AutoSize = true;
             labelIncomeText.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelIncomeText.Location = new Point(12, 133);
+            labelIncomeText.Location = new Point(12, 129);
             labelIncomeText.Name = "labelIncomeText";
             labelIncomeText.Size = new Size(64, 21);
             labelIncomeText.TabIndex = 7;
@@ -138,7 +142,7 @@
             // 
             labelExpensesText.AutoSize = true;
             labelExpensesText.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelExpensesText.Location = new Point(12, 353);
+            labelExpensesText.Location = new Point(12, 349);
             labelExpensesText.Name = "labelExpensesText";
             labelExpensesText.Size = new Size(51, 21);
             labelExpensesText.TabIndex = 8;
@@ -218,11 +222,55 @@
             btnAddEntryEspense.UseVisualStyleBackColor = true;
             btnAddEntryEspense.Click += btnAddEntryEspense_Click;
             // 
+            // txtBoxIncomeTBA
+            // 
+            txtBoxIncomeTBA.Font = new Font("Segoe UI", 10F);
+            txtBoxIncomeTBA.Location = new Point(172, 128);
+            txtBoxIncomeTBA.Name = "txtBoxIncomeTBA";
+            txtBoxIncomeTBA.ReadOnly = true;
+            txtBoxIncomeTBA.Size = new Size(100, 25);
+            txtBoxIncomeTBA.TabIndex = 15;
+            txtBoxIncomeTBA.TextAlign = HorizontalAlignment.Right;
+            // 
+            // txtBoxExpenseTBA
+            // 
+            txtBoxExpenseTBA.Font = new Font("Segoe UI", 10F);
+            txtBoxExpenseTBA.Location = new Point(172, 348);
+            txtBoxExpenseTBA.Name = "txtBoxExpenseTBA";
+            txtBoxExpenseTBA.ReadOnly = true;
+            txtBoxExpenseTBA.Size = new Size(100, 25);
+            txtBoxExpenseTBA.TabIndex = 16;
+            txtBoxExpenseTBA.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 10F);
+            label1.Location = new Point(138, 132);
+            label1.Name = "label1";
+            label1.Size = new Size(33, 19);
+            label1.TabIndex = 17;
+            label1.Text = "TBA";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 10F);
+            label2.Location = new Point(138, 352);
+            label2.Name = "label2";
+            label2.Size = new Size(33, 19);
+            label2.TabIndex = 18;
+            label2.Text = "TBA";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(494, 554);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(txtBoxExpenseTBA);
+            Controls.Add(txtBoxIncomeTBA);
             Controls.Add(btnAddEntryEspense);
             Controls.Add(btnAddEntryIncome);
             Controls.Add(btnAddExpenseBudget);
@@ -267,5 +315,9 @@
         private Button btnAddExpenseBudget;
         private Button btnAddEntryIncome;
         private Button btnAddEntryEspense;
+        private TextBox txtBoxIncomeTBA;
+        private TextBox txtBoxExpenseTBA;
+        private Label label1;
+        private Label label2;
     }
 }

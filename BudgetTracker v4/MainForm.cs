@@ -91,6 +91,20 @@ namespace BudgetTracker_v4
                     new DataGridViewButtonCell { Value = "View" }
                 ]);
                 table_Income.Rows.Add(row);
+                double tba = CurrentYear.MainIncomeBudget.CalculateTBA();
+                txtBoxIncomeTBA.Text = tba.ToString("F2");
+                if(tba > 0)
+                {
+                    txtBoxIncomeTBA.BackColor = Color.LightGreen;
+                }
+                else if(tba < 0)
+                {
+                    txtBoxIncomeTBA.BackColor = Color.LightPink;
+                }
+                else
+                {
+                    txtBoxIncomeTBA.BackColor = Color.White;
+                }
             }
             table_Costs.Rows.Clear();
             foreach (Budget b in CurrentYear.MainExpenseBudget.SubBudgets)
@@ -104,6 +118,20 @@ namespace BudgetTracker_v4
                     new DataGridViewButtonCell { Value = "View" }
                 ]);
                 table_Costs.Rows.Add(row);
+                double tba = CurrentYear.MainExpenseBudget.CalculateTBA();
+                txtBoxExpenseTBA.Text = tba.ToString("F2");
+                if (tba > 0)
+                {
+                    txtBoxExpenseTBA.BackColor = Color.LightGreen;
+                }
+                else if (tba < 0)
+                {
+                    txtBoxExpenseTBA.BackColor = Color.LightPink;
+                }
+                else
+                {
+                    txtBoxExpenseTBA.BackColor = Color.White;
+                }
             }
         }
 
