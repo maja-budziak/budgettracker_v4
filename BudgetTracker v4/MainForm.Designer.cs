@@ -42,6 +42,7 @@
             btnAddIncomeBudget = new Button();
             btnAddExpenseBudget = new Button();
             btnAddEntryIncome = new Button();
+            btnAddEntryEspense = new Button();
             ((System.ComponentModel.ISupportInitialize)table_Income).BeginInit();
             ((System.ComponentModel.ISupportInitialize)table_Costs).BeginInit();
             SuspendLayout();
@@ -158,11 +159,16 @@
             // 
             // table_Costs
             // 
+            table_Costs.AllowUserToAddRows = false;
+            table_Costs.AllowUserToDeleteRows = false;
+            table_Costs.AllowUserToResizeColumns = false;
+            table_Costs.AllowUserToResizeRows = false;
             table_Costs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             table_Costs.Location = new Point(12, 377);
             table_Costs.Name = "table_Costs";
             table_Costs.Size = new Size(470, 165);
             table_Costs.TabIndex = 10;
+            table_Costs.CellContentClick += table_Costs_CellContentClick;
             // 
             // btnAddIncomeBudget
             // 
@@ -186,6 +192,7 @@
             btnAddExpenseBudget.TabIndex = 12;
             btnAddExpenseBudget.Text = "Add K1";
             btnAddExpenseBudget.UseVisualStyleBackColor = true;
+            btnAddExpenseBudget.Click += btnAddExpenseBudget_Click;
             // 
             // btnAddEntryIncome
             // 
@@ -199,11 +206,24 @@
             btnAddEntryIncome.UseVisualStyleBackColor = true;
             btnAddEntryIncome.Click += btnAddEntryIncome_Click;
             // 
+            // btnAddEntryEspense
+            // 
+            btnAddEntryEspense.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAddEntryEspense.Font = new Font("Segoe UI", 9F);
+            btnAddEntryEspense.Location = new Point(278, 348);
+            btnAddEntryEspense.Name = "btnAddEntryEspense";
+            btnAddEntryEspense.Size = new Size(99, 26);
+            btnAddEntryEspense.TabIndex = 14;
+            btnAddEntryEspense.Text = "Add Entry";
+            btnAddEntryEspense.UseVisualStyleBackColor = true;
+            btnAddEntryEspense.Click += btnAddEntryEspense_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(494, 554);
+            Controls.Add(btnAddEntryEspense);
             Controls.Add(btnAddEntryIncome);
             Controls.Add(btnAddExpenseBudget);
             Controls.Add(btnAddIncomeBudget);
@@ -246,5 +266,6 @@
         private Button btnAddIncomeBudget;
         private Button btnAddExpenseBudget;
         private Button btnAddEntryIncome;
+        private Button btnAddEntryEspense;
     }
 }

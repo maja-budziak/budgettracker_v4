@@ -17,7 +17,7 @@ namespace BudgetTracker_v4
 
         private void AddBudgetForm_Load(object sender, EventArgs e)
         {
-            txtBoxAvailable.Text = ParentBudget.AvailableAmount.ToString();
+            txtBoxAvailable.Text = ParentBudget.AvailableAmount.ToString("F2");
             if (ParentBudget.CheckBudgetLevel() == 0)
             {
                 labelParentBudget.Text = "";
@@ -34,7 +34,7 @@ namespace BudgetTracker_v4
         {
             if (double.TryParse(txtBoxAllocated.Text, out double balance))
             {
-                txtBoxRemaining.Text = (ParentBudget.AvailableAmount - balance).ToString();
+                txtBoxRemaining.Text = (ParentBudget.AvailableAmount - balance).ToString("F2");
                 txtBoxAllocated.BackColor = Color.White;
             }
             else

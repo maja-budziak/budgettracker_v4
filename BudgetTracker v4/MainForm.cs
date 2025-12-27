@@ -23,7 +23,7 @@ namespace BudgetTracker_v4
             btnAddIncomeBudget.Enabled = false;
             btnAddExpenseBudget.Enabled = false;
         }
-       
+
         private void btnChangeYear_Click(object sender, EventArgs e)
         {
             ChangeYearForm cyf = new ChangeYearForm();
@@ -92,6 +92,19 @@ namespace BudgetTracker_v4
                 ]);
                 table_Income.Rows.Add(row);
             }
+            table_Costs.Rows.Clear();
+            foreach (Budget b in CurrentYear.MainExpenseBudget.SubBudgets)
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                row.Cells.AddRange([
+                    new DataGridViewTextBoxCell { Value = b.Id },
+                    new DataGridViewTextBoxCell { Value = b.Name },
+                    new DataGridViewTextBoxCell { Value = b.GetCurrentAmount().ToString("F2") },
+                    new DataGridViewTextBoxCell { Value = b.CalculateTBA().ToString("F2") },
+                    new DataGridViewButtonCell { Value = "View" }
+                ]);
+                table_Costs.Rows.Add(row);
+            }
         }
 
         private void btnAddIncomeBudget_Click(object sender, EventArgs e)
@@ -118,6 +131,35 @@ namespace BudgetTracker_v4
         {
             string json = JsonSerializer.Serialize(FinancialYears);
             File.WriteAllText("structure.json", json);
+        }
+
+        private void table_Costs_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (table_Income.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                int id = (int)table_Costs.Rows[e.RowIndex].Cells[0].Value;
+                Budget b = CurrentYear.MainExpenseBudget.SubBudgets.FirstOrDefault(b => b.Id == id);
+                BudgetViewForm bvf = new BudgetViewForm();
+                bvf.ThisBudget = b;
+                bvf.ShowDialog();
+            }
+
+        }
+
+        private void btnAddExpenseBudget_Click(object sender, EventArgs e)
+        {
+            AddBudgetForm abf = new AddBudgetForm();
+            abf.ParentBudget = CurrentYear.MainExpenseBudget;
+            abf.ShowDialog();
+            FillTables();
+        }
+
+        private void btnAddEntryEspense_Click(object sender, EventArgs e)
+        {
+            NewEntryForm nef = new NewEntryForm();
+            nef.ThisBudget = CurrentYear.MainExpenseBudget;
+            nef.ShowDialog();
+
         }
     }
 }

@@ -135,7 +135,7 @@ namespace BudgetTracker_v4
         /// <returns></returns>
         public int CheckBudgetLevel()
         {
-            if(this == MainForm.CurrentYear.MainIncomeBudget || ParentBudget == MainForm.CurrentYear.MainExpenseBudget)
+            if(this == MainForm.CurrentYear.MainIncomeBudget || this == MainForm.CurrentYear.MainExpenseBudget)
             {
                 return 0;
             }
