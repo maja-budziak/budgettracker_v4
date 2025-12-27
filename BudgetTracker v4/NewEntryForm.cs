@@ -55,6 +55,7 @@ namespace BudgetTracker_v4
             int id = (int)table_SubBudgets.Rows[e.RowIndex].Cells[0].Value;
             Budget b = ThisBudget.SubBudgets.FirstOrDefault(b => b.Id == id);
             ThisBudget = b;
+            txtBoxAvailable.Text = ThisBudget.GetCurrentAmount().ToString("F2");
             FillTables();
             labelSelectedBudget.Text = "[" + ThisBudget.GetFullId() + "] " + ThisBudget.Name;
             btnBackToParent.Enabled = true;
@@ -64,6 +65,7 @@ namespace BudgetTracker_v4
         private void btnBackToParent_Click(object sender, EventArgs e)
         {
             ThisBudget = ThisBudget.ParentBudget;
+            txtBoxAvailable.Text = ThisBudget.GetCurrentAmount().ToString("F2");
             FillTables();
             labelSelectedBudget.Text = "[" + ThisBudget.GetFullId() + "] " + ThisBudget.Name;
             if (ThisBudget == MainForm.CurrentYear.MainIncomeBudget || ThisBudget == MainForm.CurrentYear.MainExpenseBudget)
@@ -75,10 +77,25 @@ namespace BudgetTracker_v4
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             double amount = double.Parse(txtBoxAmount.Text);
-            Entry en = new Entry(ThisBudget, amount);
+            string name = txtBoxName.Text;
+            Entry en = new Entry(ThisBudget, amount, name);
             ThisBudget.Entries.Add(en);
             en.PushEntry(ThisBudget);
             Close();
+        }
+
+        private void txtBoxAmount_TextChanged(object sender, EventArgs e)
+        {
+            if (double.TryParse(txtBoxAmount.Text, out double balance))
+            {
+                txtBoxRemaining.Text = (ThisBudget.GetCurrentAmount() - balance).ToString("F2");
+                txtBoxAmount.BackColor = Color.White;
+            }
+            else
+            {
+                txtBoxAmount.BackColor = Color.Salmon;
+            }
+
         }
     }
 }

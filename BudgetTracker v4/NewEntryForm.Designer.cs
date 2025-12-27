@@ -38,7 +38,7 @@
             labelCurrentText = new Label();
             txtBoxAmount = new TextBox();
             labelEntryAmount = new Label();
-            textBox2 = new TextBox();
+            txtBoxRemaining = new TextBox();
             labelRemaning = new Label();
             btnConfirm = new Button();
             ((System.ComponentModel.ISupportInitialize)table_SubBudgets).BeginInit();
@@ -138,6 +138,7 @@
             txtBoxAmount.Size = new Size(202, 29);
             txtBoxAmount.TabIndex = 28;
             txtBoxAmount.TextAlign = HorizontalAlignment.Right;
+            txtBoxAmount.TextChanged += txtBoxAmount_TextChanged;
             // 
             // labelEntryAmount
             // 
@@ -149,16 +150,16 @@
             labelEntryAmount.TabIndex = 29;
             labelEntryAmount.Text = "Amount:";
             // 
-            // textBox2
+            // txtBoxRemaining
             // 
-            textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            textBox2.Font = new Font("Segoe UI", 12F);
-            textBox2.Location = new Point(280, 493);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(202, 29);
-            textBox2.TabIndex = 30;
-            textBox2.TextAlign = HorizontalAlignment.Right;
+            txtBoxRemaining.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            txtBoxRemaining.Font = new Font("Segoe UI", 12F);
+            txtBoxRemaining.Location = new Point(280, 493);
+            txtBoxRemaining.Name = "txtBoxRemaining";
+            txtBoxRemaining.ReadOnly = true;
+            txtBoxRemaining.Size = new Size(202, 29);
+            txtBoxRemaining.TabIndex = 30;
+            txtBoxRemaining.TextAlign = HorizontalAlignment.Right;
             // 
             // labelRemaning
             // 
@@ -189,7 +190,7 @@
             ClientSize = new Size(494, 554);
             Controls.Add(btnConfirm);
             Controls.Add(labelRemaning);
-            Controls.Add(textBox2);
+            Controls.Add(txtBoxRemaining);
             Controls.Add(labelEntryAmount);
             Controls.Add(txtBoxAmount);
             Controls.Add(labelCurrentText);
@@ -222,7 +223,7 @@
         private Label labelCurrentText;
         private TextBox txtBoxAmount;
         private Label labelEntryAmount;
-        private TextBox textBox2;
+        private TextBox txtBoxRemaining;
         private Label labelRemaning;
         private Button btnConfirm;
     }
