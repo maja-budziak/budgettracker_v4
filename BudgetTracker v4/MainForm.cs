@@ -17,11 +17,13 @@ namespace BudgetTracker_v4
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            FinancialYears = FinancialSerializer.DeserializeFromFile("structure.json");
+            FinancialSerializer.RebuildReferences(FinancialYears);
             FormatTables();
             btnAddIncomeBudget.Enabled = false;
             btnAddExpenseBudget.Enabled = false;
-            // TODO pulling data from json
         }
+       
         private void btnChangeYear_Click(object sender, EventArgs e)
         {
             ChangeYearForm cyf = new ChangeYearForm();
@@ -33,6 +35,7 @@ namespace BudgetTracker_v4
                 labelFY.Text = "Financial Year:   " + CurrentYear.Year.ToString();
                 btnAddIncomeBudget.Enabled = true;
                 btnAddExpenseBudget.Enabled = true;
+                FillTables();
             }
         }
 
@@ -48,7 +51,7 @@ namespace BudgetTracker_v4
             if (table_Income.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
                 int id = (int)table_Income.Rows[e.RowIndex].Cells[0].Value;
-                Budget b = Budgets.FirstOrDefault(b => b.Id == id);
+                Budget b = CurrentYear.MainIncomeBudget.SubBudgets.FirstOrDefault(b => b.Id == id);
                 BudgetViewForm bvf = new BudgetViewForm();
                 bvf.ThisBudget = b;
                 bvf.ShowDialog();

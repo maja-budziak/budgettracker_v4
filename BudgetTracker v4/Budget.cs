@@ -60,7 +60,8 @@ namespace BudgetTracker_v4
             Entries = [];
         }
 
-        private FinancialYear Year {  get; set; }
+        [JsonIgnore]
+        public FinancialYear Year {  get; set; }
         [JsonIgnore]
         public Budget? ParentBudget { get; set; }
         public int Id { get; set; }
