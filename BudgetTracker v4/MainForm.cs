@@ -114,7 +114,7 @@ namespace BudgetTracker_v4
                     new DataGridViewTextBoxCell { Value = b.Id },
                     new DataGridViewTextBoxCell { Value = b.Name },
                     new DataGridViewTextBoxCell { Value = b.GetCurrentAmount().ToString("F2") },
-                    new DataGridViewTextBoxCell { Value = b.CalculateTBA().ToString("F2") },
+                    new DataGridViewTextBoxCell { Value = b.CalculateTBA().ToString("F2"), Style = { BackColor = (b.CalculateTBA() < 0 ? Color.LightPink : (b.CalculateTBA() > 0 ? Color.LightGreen : Color.White)) } },
                     new DataGridViewButtonCell { Value = "View" }
                 ]);
                 table_Costs.Rows.Add(row);
