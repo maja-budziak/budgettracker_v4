@@ -49,7 +49,7 @@ namespace BudgetTracker_v4
             labelCurrentBudget.Text = "[" + ThisBudget.GetFullId() + "] " + ThisBudget.Name;
             btnAddIncomeBudget.Text = "Add K" + (ThisBudget.CheckBudgetLevel() + 1);
             labelCurrentBalance.Text = (ThisBudget.GetCurrentAmount() * ThisBudget.IsIncome()).ToString("F2");
-            labelTBABalance.Text = (ThisBudget.GetCurrentAmount() * ThisBudget.IsIncome()).ToString("F2");
+            labelTBABalance.Text = (ThisBudget.CalculateTBA() * ThisBudget.IsIncome()).ToString("F2");
             FillTables();
         }
 

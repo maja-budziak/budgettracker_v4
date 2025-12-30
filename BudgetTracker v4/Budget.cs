@@ -80,10 +80,6 @@ namespace BudgetTracker_v4
         public double CalculateTBA()
         {
             DateTime FYStart = new DateTime(Year.Year, 1, 1, 0, 0, 0);
-            if(Year.Year == 2026)
-            {
-                FYStart = new DateTime(2025, 12, 30, 11, 19, 0);
-            }
             DateTime FYEnd = FYStart.AddYears(1);
             if (DateTime.Now > FYEnd)
             {
@@ -152,6 +148,10 @@ namespace BudgetTracker_v4
                 return 1 + ParentBudget.CheckBudgetLevel();
             }
         }
+        /// <summary>
+        /// Inverts the displayed balance of income-side budgets.
+        /// </summary>
+        /// <returns>-1 if it's an income budget, 1 if it's an expense budget.</returns>
         public int IsIncome()
         {
             if(this == MainForm.CurrentYear.MainIncomeBudget)
