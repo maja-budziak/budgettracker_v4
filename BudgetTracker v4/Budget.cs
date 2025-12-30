@@ -80,6 +80,10 @@ namespace BudgetTracker_v4
         public double CalculateTBA()
         {
             DateTime FYStart = new DateTime(Year.Year, 1, 1, 0, 0, 0);
+            if(Year.Year == 2026)
+            {
+                FYStart = new DateTime(2025, 12, 30, 11, 19, 0);
+            }
             DateTime FYEnd = FYStart.AddYears(1);
             if (DateTime.Now > FYEnd)
             {
@@ -146,6 +150,21 @@ namespace BudgetTracker_v4
             else
             {
                 return 1 + ParentBudget.CheckBudgetLevel();
+            }
+        }
+        public int IsIncome()
+        {
+            if(this == MainForm.CurrentYear.MainIncomeBudget)
+            {
+                return -1;
+            }
+            else if(this == MainForm.CurrentYear.MainExpenseBudget)
+            {
+                return 1;
+            }
+            else
+            {
+                return ParentBudget.IsIncome();
             }
         }
     }

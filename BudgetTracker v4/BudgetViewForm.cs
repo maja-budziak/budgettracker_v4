@@ -35,8 +35,8 @@ namespace BudgetTracker_v4
                 row.Cells.AddRange([
                     new DataGridViewTextBoxCell { Value = b.Id },
                     new DataGridViewTextBoxCell { Value = b.Name },
-                    new DataGridViewTextBoxCell { Value = b.GetCurrentAmount().ToString("F2") },
-                    new DataGridViewTextBoxCell { Value = b.CalculateTBA().ToString("F2") },
+                    new DataGridViewTextBoxCell { Value = (b.GetCurrentAmount() * b.IsIncome()).ToString("F2") },
+                    new DataGridViewTextBoxCell { Value = (b.CalculateTBA() * b.IsIncome()).ToString("F2"), Style = { BackColor = ((b.CalculateTBA() * b.IsIncome()) < 0 ? Color.LightPink : ((b.CalculateTBA() * b.IsIncome()) > 0 ? Color.LightGreen : Color.White)) } },
                     new DataGridViewButtonCell { Value = "View" }
                 ]);
                 table_SubBudgets.Rows.Add(row);
@@ -48,8 +48,8 @@ namespace BudgetTracker_v4
             FormatTables();
             labelCurrentBudget.Text = "[" + ThisBudget.GetFullId() + "] " + ThisBudget.Name;
             btnAddIncomeBudget.Text = "Add K" + (ThisBudget.CheckBudgetLevel() + 1);
-            labelCurrentBalance.Text = ThisBudget.GetCurrentAmount().ToString("F2");
-            labelTBABalance.Text = ThisBudget.CalculateTBA().ToString("F2");
+            labelCurrentBalance.Text = (ThisBudget.GetCurrentAmount() * ThisBudget.IsIncome()).ToString("F2");
+            labelTBABalance.Text = (ThisBudget.GetCurrentAmount() * ThisBudget.IsIncome()).ToString("F2");
             FillTables();
         }
 

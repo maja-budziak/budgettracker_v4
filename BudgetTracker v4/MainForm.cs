@@ -86,12 +86,12 @@ namespace BudgetTracker_v4
                 row.Cells.AddRange([
                     new DataGridViewTextBoxCell { Value = b.Id },
                     new DataGridViewTextBoxCell { Value = b.Name },
-                    new DataGridViewTextBoxCell { Value = b.GetCurrentAmount().ToString("F2") },
-                    new DataGridViewTextBoxCell { Value = b.CalculateTBA().ToString("F2") },
+                    new DataGridViewTextBoxCell { Value = (b.GetCurrentAmount() * b.IsIncome()).ToString("F2") },
+                    new DataGridViewTextBoxCell { Value = (b.CalculateTBA() * b.IsIncome()).ToString("F2"), Style = { BackColor = ((b.CalculateTBA() * b.IsIncome()) < 0 ? Color.LightPink : ((b.CalculateTBA() * b.IsIncome()) > 0 ? Color.LightGreen : Color.White)) }},
                     new DataGridViewButtonCell { Value = "View" }
                 ]);
                 table_Income.Rows.Add(row);
-                double tba = CurrentYear.MainIncomeBudget.CalculateTBA();
+                double tba = CurrentYear.MainIncomeBudget.CalculateTBA() * CurrentYear.MainIncomeBudget.IsIncome();
                 txtBoxIncomeTBA.Text = tba.ToString("F2");
                 if(tba > 0)
                 {
