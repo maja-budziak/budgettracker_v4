@@ -36,7 +36,7 @@ namespace BudgetTracker_v4
                     new DataGridViewTextBoxCell { Value = b.Id },
                     new DataGridViewTextBoxCell { Value = b.Name },
                     new DataGridViewTextBoxCell { Value = b.GetCurrentAmount().ToString("F2") },
-                    new DataGridViewTextBoxCell { Value = b.CalculateTBA().ToString("F2") },
+                    new DataGridViewTextBoxCell { Value = b.CalculateTBA().ToString("F2") , Style = { BackColor = ((b.CalculateTBA() * b.IsIncome()) < 0 ? Color.LightPink : ((b.CalculateTBA() * b.IsIncome()) > 0 ? Color.LightGreen : Color.White)) }},
                     new DataGridViewButtonCell { Value = "Select" }
                 ]);
                 table_SubBudgets.Rows.Add(row);

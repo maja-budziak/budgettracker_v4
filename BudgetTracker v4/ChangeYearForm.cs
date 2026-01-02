@@ -18,8 +18,15 @@ namespace BudgetTracker_v4
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            MainForm.CurrentYear = MainForm.FinancialYears.FirstOrDefault(f => f.Year == int.Parse(comBoxYears.Text));
-            Close();
+            try
+            {
+                MainForm.CurrentYear = MainForm.FinancialYears.FirstOrDefault(f => f.Year == int.Parse(comBoxYears.Text));
+                Close();
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Year not selected, please try again.");
+            }
+            
         }
 
         private void ChangeYearForm_Load(object sender, EventArgs e)
